@@ -1,0 +1,90 @@
+<style>
+.fc-event, .fc-event-dot {
+    background-color : #563d7c;
+    color : white;
+}
+.fc-content {
+    color : white;
+}
+</style>
+<div  ng-controller="reservation-cabin-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/reservations"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Reservaciones</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-bed" aria-hidden="true"></i> cabañas</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-bed" aria-hidden="true"></i> Disponibles</h5>
+        </div>
+        <div class="col-md-4">
+            <a href="#/reservations/cabin/new"><button type="button" class="btn btn-primary" style="width:100%;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nueva reservación</button></a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al agregar objecto</strong>
+                <p>{{errors}}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-12">
+                <center>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-danger" ng-click="pending_month()">
+                            <input type="radio" name="options" id="monthOption" autocomplete="off"> Pendientes
+                        </label>
+                        <label class="btn btn-success" ng-click="payed_month()">
+                            <input type="radio" name="options" id="yearOption" autocomplete="off"> Pagados
+                        </label>
+                        <label class="btn btn-primary active" ng-click="all_months()">
+                            <input type="radio" name="options" id="allOption" autocomplete="off" checked> Todos
+                        </label>
+                    </div>
+                </center>
+            </div>
+
+            <div class="col-md-12" style="overflow-y: scroll; height:480px;">
+                <br>
+                <div ng-repeat="r in tb_reservations" class="card" style="background-color: white; border-color: #333;">
+                    <div class="card-block">
+                        <h3 class="card-title">{{r.reservation_info.full_name}}</h3>
+                        <hr>
+                        <p class="lead" style="color:red;"> <b><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></b> {{r.payment_info.payment_status.name}}</p>
+                        <hr>
+                        <p ng-repeat="d in r.details" class="lead"><i class="fa fa-home" aria-hidden="true"></i> {{d.product.name}}</p>
+                        <p class="card-text"><b>Capacidad :</b> {{r.max_guests}}</p>
+                        <p class="card-text"><b>Niños Extra :</b> {{r.extra_guests_child}}</p>
+                        <p class="card-text"><b>Adultos Extra :</b> {{r.extra_guests_adult}}</p>
+                        <p class="card-text">{{r.date_start|dateFilter}} - {{r.date_end|dateFilter}}</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="#" ng-click="delete($event, r.id)"class="btn btn-danger">Cancelar</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#/reservations/cabin/detail/{{r.id}}" class="btn btn-primary">Ver detalle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources" style="height:500px"></div>
+        </div>
+    </div>
+
+</div>
+
+</script>

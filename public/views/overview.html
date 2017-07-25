@@ -1,0 +1,154 @@
+<div  ng-controller="overview-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="#/overview"><i class="fa fa-id-card-o" aria-hidden="true"></i> Perfil</a></li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-id-card-o" aria-hidden="true"></i> Perfil</h5>
+        </div>
+        <div class="co-md-4">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row" id="recipt" >
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al obtener datos</strong>
+                <p>{{errors}}</p>
+            </div>
+        </div>
+    </div>
+
+    <!--- Reservaciones pendientes --->
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Reservaciones pendientes del mes</h3>
+            <hr>
+        </div>
+        <div class="col-md-6">
+            <h3>Ventas del mes [Reservaciones pagadas]</h3>
+            <hr>
+            <fusioncharts
+                width="100%"
+                height="400"
+                type="mscombi2d"
+                datasource="{{month_cabin_sales}}">
+            </fusioncharts>
+        </div>
+    </div>
+    <hr>
+    <!-- To dos -->
+    <div class="row">
+        <div class="col-md-3">
+            <center>
+                <h3>Avance general</h3>
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary active">
+                        <input type="radio" name="options" id="monthOption" autocomplete="off" checked> Mes
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="yearOption" autocomplete="off"> Año
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" id="allOption" autocomplete="off"> Todo
+                    </label>
+                </div>
+            </center>
+            <hr>
+
+        </div>
+        <div class="col-md-3">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-custom-red">
+                    <tr>
+                        <th><i class="fa fa-times-circle" aria-hidden="true"></i> Pendientes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="t in todo">
+                        <td>
+                            <div class="card card-outline-info">
+                                <div class="card-header">
+                                    {{t.value|getValueName}}
+                                </div>
+                                <div class="card-block">
+                                    <blockquote class="card-blockquote">
+                                        <p>{{t.name}}</p>
+                                        <p>{{t.description}}</p>
+                                        <p>[<a href="" ng-click="task_doing( t )"><i class="fa fa-clock-o" aria-hidden="true"></i> En Proceso</a> | <a href="" ng-click="task_done( t )"><i class="fa fa-check-circle" aria-hidden="true"></i> Hecha</a>]</p>
+                                        <footer>Límite <cite title="Source Title"><b>{{t.date_end|dateTimeFilter}}</b></cite></footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-custom-blue">
+                    <tr>
+                        <th><i class="fa fa-clock-o" aria-hidden="true"></i> En proceso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="t in doing">
+                        <td>
+                            <div class="card card-outline-info">
+                                <div class="card-header">
+                                    {{t.value|getValueName}}
+                                </div>
+                                <div class="card-block">
+                                    <blockquote class="card-blockquote">
+                                        <p>{{t.name}}</p>
+                                        <p>{{t.description}}</p>
+                                        <p>[<a href="" ng-click="task_todo( t )"><i class="fa fa-times-circle" aria-hidden="true"></i> Pendiente</a> | <a href="" ng-click="task_done( t )"><i class="fa fa-check-circle" aria-hidden="true"></i> Hecha</a>]</p>
+                                        <footer>Límite <cite title="Source Title"><b>{{t.date_end|dateTimeFilter}}</b></cite></footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-custom-green">
+                    <tr>
+                        <th><i class="fa fa-check-circle" aria-hidden="true"></i>  Realizadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="t in done">
+                        <td>
+                            <div class="card card-outline-info">
+                                <div class="card-header">
+                                    {{t.value|getValueName}}
+                                </div>
+                                <div class="card-block">
+                                    <blockquote class="card-blockquote">
+                                        <p>{{t.name}}</p>
+                                        <p>{{t.description}}</p>
+                                        <p>[<a href="" ng-click="task_todo( t )"><i class="fa fa-times-circle" aria-hidden="true"></i> Pendiente</a> | <a href="" ng-click="task_doing( t )"><i class="fa fa-clock-o" aria-hidden="true"></i> En Proceso</a>]</p>
+                                        <footer>Límite <cite title="Source Title"><b>{{t.date_end|dateTimeFilter}}</b></cite></footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

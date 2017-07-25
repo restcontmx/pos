@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="POS-SALES" lang="es">
+
+    <head>
+
+        <title></title>
+
+        <meta charset="UTF-8">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css'
+                                integrity='sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi'
+                                crossorigin='anonymous' />
+        <!-- Angular Material style sheet -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        <link rel="stylesheet" href="../public/stylesheets/jquery.datetimepicker.min.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.css'/>
+        <link rel='stylesheet' href='../public/stylesheets/calendarDemo.css'/>
+        <link rel='stylesheet' href='../public/stylesheets/dashboard.css'/>
+    </head>
+    <body>
+
+        <div ng-show="isLoggedIn.show_app">
+            <nav ng-include="'../public/includes/navbar.html'" class="navbar navbar-dark navbar-fixed-top custom-nav" ng-controller="navbar-controller" ></nav>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <main class="col-sm-12 col-md-12 pt-3" style="margin-top:-50px;" ng-view ></main>
+                </div>
+            </div>
+
+        </div>
+
+        <div ng-include="'../public/includes/auth.html'" ng-show="isLoggedIn.show_auth"></div>
+
+        <script>
+          // You can also require other files to run in this process
+          require('./renderer.js')
+          window.jQuery = window.$ = require('jquery');
+        </script>
+
+        <!-- Angular shit -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-resource.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-cookies.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular-messages.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js'
+                integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB"
+                crossorigin="anonymous"></script>
+
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js'
+                integrity='sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK'
+                crossorigin='anonymous'></script>
+
+        <script src="https://use.fontawesome.com/385368c8c3.js"></script>
+
+        <script src='../public/javascripts/controllers/main_controller.js'></script>
+        <script src='../public/javascripts/controllers/pos_controller.js'></script>
+
+    </body>
+</html>

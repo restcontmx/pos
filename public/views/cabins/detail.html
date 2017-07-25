@@ -1,0 +1,99 @@
+<div  ng-controller="cabin-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/cabins"><i class="fa fa-bed" aria-hidden="true"></i> Cabañas</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-asterisk" aria-hidden="true"></i> Detalle</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <h5 class="lead"> <i class="fa fa-asterisk" aria-hidden="true"></i> Detalle de cabaña</h5>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al crear objecto!</strong> {{errors}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card card-outline-primary mb-3 text-left">
+                <div class="card-header text-sm-center lead">
+                    Detalle
+                </div>
+
+                <div class="card-block">
+
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>Nombre</th>
+                                <td class="lead">{{cabin.name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Descripción</th>
+                                <td class="lead">{{cabin.description}}</td>
+                            </tr>
+                            <tr>
+                                <th>Precio</th>
+                                <td class="lead">{{cabin.price}}</td>
+                            </tr>
+                            <tr>
+                                <th>Tipo de Cabaña</th>
+                                <td class="lead">{{cabin.cabin_type.name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Imagen</th>
+                                <td class="lead"><img src="{{cabin.img_url}}" class="img-fluid" alt="Responsive image"></td>
+                            </tr>
+                            <tr>
+                                <th>Creado</th>
+                                <td class="lead">{{cabin.timestamp | dateTimeFilter}}</td>
+                            </tr>
+                            <tr>
+                                <th>Modificado</th>
+                                <td class="lead">{{cabin.updated | dateTimeFilter}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-footer text-muted">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group text-sm-left">
+                                <a href="#/cabins">
+                                    <button type="button" class="btn btn-danger"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Cancelar</button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group text-sm-center">
+                                <button type="button" ng-click="delete( $event, cabin.id )" class="btn btn-warning md-raised"><i class="fa fa-minus-circle" aria-hidden="true"></i> Borrar</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group text-sm-right">
+                                <a href="#/cabins/edit/{{cabin.id}}">
+                                    <button type="submit" class="btn btn-info"><i class="fa fa-pencil-square" aria-hidden="true"></i> Editar</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

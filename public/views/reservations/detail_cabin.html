@@ -1,0 +1,184 @@
+<div  ng-controller="reservation-cabin-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/reservations"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Reservaciones</a></li>
+        <li class="breadcrumb-item"><a href="#/reservations/cabin/"><i class="fa fa-bed" aria-hidden="true"></i> Cabañas</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-info" aria-hidden="true"></i> Detalle</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <h5 class="lead"> <i class="fa fa-bed" aria-hidden="true"></i> Disponibles</h5>
+        </div>
+        <div class="co-md-7">
+            <button type="button" class="btn btn-sm btn-warning"><i class="fa fa-envelope" aria-hidden="true"></i> Enviar</button>
+            <button type="button" class="btn btn-sm btn-info" ng-click="print()"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
+            <button type="button" class="btn btn-sm btn-warning"><i class="fa fa-bell-o" aria-hidden="true"></i> Alertar</button>
+            <button ng-if="reservation.payment_info.payment_status.value == 1" type="button" class="btn btn-sm btn-danger" ng-click="pay($event, reservation.id)"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Marcar como Pagada</button>
+            <button ng-if="reservation.payment_info.payment_status.value == 2" type="button" class="btn btn-sm btn-success" disabled><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Pagada</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="recipt" >
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al agregar objecto</strong>
+                <p>{{errors}}</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2>Información</h2>
+
+            <hr />
+
+            <div class="card" style="width:100%;">
+
+                <div class="card-block">
+                    <h4 class="card-title">{{reservation.reservation_info.full_name}}</h4>
+                    <p class="card-text">{{reservation.reservation_info.email}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Teléfono :</b> {{reservation.reservation_info.phone_number}}</li>
+                    <li class="list-group-item"><b>Dirección 1 :</b> {{reservation.reservation_info.address1}}</li>
+                    <li class="list-group-item"><b>Dirección 2 :</b> {{reservation.reservation_info.address2}}</li>
+                    <li class="list-group-item"><b>Código Postal :</b> {{reservation.reservation_info.zip_code}}</li>
+                    <li class="list-group-item"><b>Ciudad :</b> {{reservation.reservation_info.city}}</li>
+                    <li class="list-group-item"><b>Estado :</b> {{reservation.reservation_info.state}}</li>
+                    <li class="list-group-item"><b>País :</b> {{reservation.reservation_info.country}}</li>
+                </ul>
+            </div>
+
+            <div class="card" style="width:100%;" ng-if="reservation.payment_info.collection_id">
+
+                <div class="card-block">
+                    <h4 class="card-title">Información de pago</h4>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>ID de pago :</b> {{reservation.payment_info.collection_id}}</li>
+                    <li class="list-group-item"><b>Estado de pago :</b> {{collection.status}}</li>
+                    <li class="list-group-item"><b>Forma de pago :</b> {{collection.payment_method_id}}</li>
+                    <li class="list-group-item"><b>Typo de pago :</b> {{collection.payment_type}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+
+            <h2>Detalle de reservación</h2>
+
+            <hr/>
+
+            <div class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-inverse card-danger text-center">
+                                <div class="card-block">
+                                    <blockquote class="card-blockquote">
+                                        <p>ID : <b>{{reservation.extended_token}}</b></p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-hover">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th><i class="fa fa-asterisk" aria-hidden="true"></i>  Detalle</th>
+                                <th style="width:15%"><i class="fa fa-money" aria-hidden="true"></i> P/U</th>
+                                <th style="width:15%"><i class="fa fa-people" aria-hidden="true"></i> Cantidad</th>
+                                <th style="width:15%"><i class="fa fa-money" aria-hidden="true"></i> SubTotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Máximo de personas
+                                </td>
+                                <td>
+                                    $ 0.00
+                                </td>
+                                <td>
+                                    {{reservation.max_guests}}
+                                </td>
+                                <td>
+                                    $ 0.00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Boletos Extra Niños
+                                </td>
+                                <td>$ {{ticket_price_child}}</td>
+                                <td>
+                                    {{ reservation.extra_guests_child }}
+                                </td>
+                                <td>$ {{ reservation.extra_guests_child * ticket_price_child }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Boletos Extra Niños
+                                </td>
+                                <td>$ {{ticket_price_adult}}</td>
+                                <td>
+                                    {{ reservation.extra_guests_adult }}
+                                </td>
+                                <td>$ {{ reservation.extra_guests_adult * ticket_price_adult }}</td>
+                            </tr>
+                            <tr ng-repeat="d in reservation.details">
+                                <td>
+                                    <div class="form-group">
+                                        {{d.product.name}}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        $ {{ d.product.price }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        {{ d.qty }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        $ {{ d.qty * d.product.price }}
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <br />
+
+                    <table style="width:80%;"class="table table-bordered table-hover pull-right">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th> Entrada</th>
+                                <th> Salida</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{reservation.date_start|dateFilter}}</td>
+                                <td>{{reservation.date_end|dateFilter}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <div style="width:60%;" class="card card-outline-danger pull-right">
+                        <div class="card-block">
+                            <h1 class="display-5">Total $ {{reservation.total}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

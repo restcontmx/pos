@@ -1,0 +1,83 @@
+<h2>Dummy view</h2>
+
+<h5>This is for testing purposes only!</h5>
+
+<div ng-controller="dummy-controller">
+
+    <hr />
+
+    <div class="card card-outline-info mb-3 text-left">
+        <div class="card-block">
+            <blockquote class="card-blockquote">
+
+                <h4>This is front-end connection test.</h4>
+
+                <p><b>Message from the server side of the FE : </b>{{fe.message}}</p>
+
+            </blockquote>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="card card-outline-info mb-3 text-left">
+        <div class="card-block">
+            <blockquote class="card-blockquote">
+
+                <h4>This is back-end connection test.</h4>
+
+                <p><b>Message from the back-end of the app : </b>{{be.message}}</p>
+
+            </blockquote>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="card card-outline-info mb-3 text-left">
+        <div class="card-block">
+            <blockquote class="card-blockquote">
+
+                <h4>This is basic authentication test.</h4>
+
+                <p><b>Message from the back end of the app : </b>{{be.message_auth}}</p>
+
+            </blockquote>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="card card-outline-info mb-3 text-left">
+        <div class="card-block">
+            <blockquote class="card-blockquote">
+
+                <h4>This is encryption test.</h4>
+
+                <p><b>Message from the back end of the app : </b>{{be.message_encrypt}}</p>
+
+            </blockquote>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="card card-outline-info mb-3 text-left">
+        <div class="card-block">
+            <blockquote class="card-blockquote">
+
+                <h4>This is cookie test.</h4>
+
+                <p><b>Message from server side : </b>{{fe.message_cookie}}</p>
+                <p><b>Username <small>(hardcoded)</small>: </b>{{fe.username}}</p>
+                <p><b>Token with password and username  <small>(hardcoded)</small> : </b>{{fe.token}}</p>
+
+            </blockquote>
+        </div>
+    </div>
+
+    <hr />
+
+</div>
+
+<br/>

@@ -1,0 +1,90 @@
+<div  ng-controller="contents-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/contents"> Contenidos</a></li>
+        <li class="breadcrumb-item active"> Editar Contenido</li>
+    </ol>
+
+
+    <h2 class="display-3">{{title}}</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <h5 class="lead"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Nuestros Productos</h5>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al editar objecto!</strong> {{errors}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-outline-primary mb-3 text-left">
+                <div class="card-header text-sm-center lead">
+                    Editar
+                </div>
+                <div class="card-block">
+                    <div class="alert alert-danger" role="alert" ng-if="errors">
+                        <strong>Error al editar objecto</strong>
+                        <p>{{errors}}</p>
+                    </div>
+                    <form ng-submit="save_ourproducts()">
+
+                        <div class="row">
+                            <div ng-repeat="opc in ourproductscontents" class="col-md-4">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <p>Desde </p> <h2>
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                ng-model="opc.price_range"></h2>
+                                        <hr>
+                                        <h4 class="card-title">
+                                            <input
+                                                type="text"
+                                                class="form-control"
+                                                ng-model="opc.product_name"></h4>
+                                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                        <p class="card-text">
+                                            <textarea
+                                                name="name"
+                                                class="form-control"
+                                                rows="5" cols="100" ng-model="opc.content"></textarea>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-left">
+                                    <a href="#/contents">
+                                        <button type="button" class="btn btn-danger"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Cancelar</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

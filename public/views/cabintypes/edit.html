@@ -1,0 +1,60 @@
+<div  ng-controller="cabintype-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/cabintypes"><i class="fa fa-list-alt" aria-hidden="true"></i> Tipos de Cabaña</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-pencil-square" aria-hidden="true"></i> Editar</li>
+    </ol>
+
+
+    <h2 class="display-3">{{title}}</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <h5 class="lead"> <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar typo de cabaña</h5>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card card-outline-primary mb-3 text-left">
+                <div class="card-header text-sm-center lead">
+                    Editar
+                </div>
+                <div class="card-block">
+                    <div class="alert alert-danger" role="alert" ng-if="errors">
+                        <strong>Error al editar objecto</strong>
+                        <p>{{errors}}</p>
+                    </div>
+                    <form ng-submit="update()">
+
+                        <div ng-include="'/views/cabintypes/cabintype.html'"></div>
+
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-left">
+                                    <a href="#/cabintypes">
+                                        <button type="button" class="btn btn-danger"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Cancelar</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

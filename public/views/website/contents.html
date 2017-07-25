@@ -1,0 +1,122 @@
+<div  ng-controller="contents-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-columns" aria-hidden="true"></i> Contenidos</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-globe" aria-hidden="true"></i> <a href="http://www.balneariolaspalmas.co">Sitio Balenario Las Palmas</a></h5>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h2>Nuestra compañía</h2> [<a href="#/contents/ourcompany/">Editar</a>]
+            </center>
+            <hr>
+        </div>
+        <div class="col-md-3">
+            <img src="{{ourcompanycontents[0].img_url_1}}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-md-3">
+            <img src="{{ourcompanycontents[0].img_url_2}}" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-md-6">
+            <h4>{{ourcompanycontents[0].title}}</h4>
+            <p class="text-justify">{{ourcompanycontents[0].content}}</p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h2>Nuestros Servicios</h2> [<a href="#/contents/ourservices/">Editar</a>]
+            </center>
+            <hr>
+        </div>
+        <div ng-repeat="osc in ourservicescontents" class="col-md-4">
+            <center>
+			    <figure class="services-icon-fig"><i class="{{osc.icon}}"></i></figure>
+            </center>
+            <h4>{{osc.title}}</h4>
+            <p class="text-justify">{{osc.content}}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h2>Recomendaciones</h2> [<a href="#/contents/recomendations/">Editar</a>]
+            </center>
+            <hr>
+        </div>
+        <hr>
+        <div ng-repeat="r in recomendationscontents" class="col-md-12">
+            <p class="text-center">{{r.content}}</p>
+            <p class="blockquote-footer"><b>{{r.source}}</b></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h2>Nuestro Personal</h2> [<a href="#/contents/ourpersonal/">Editar</a>]
+            </center>
+            <hr>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <center>
+                <p>{{ourpersonalcontents[0].content}}</p>
+            </center>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-12">
+            <center>
+                <img src="{{ourpersonalcontents[0].img_url}}" class="img-fluid" alt="">
+            <center>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            <center>
+                <h2>Nuestros Productos</h2> [<a href="#/contents/ourproducts/">Editar</a>]
+            </center>
+            <hr>
+        </div>
+        <div ng-repeat="opc in ourproductscontents" class="col-md-4">
+            <div class="card">
+                <div class="card-block">
+                    <p>Desde </p> <h2>{{opc.price_range}}</h2>
+                    <hr>
+                    <h4 class="card-title">{{opc.product_name}}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">
+                        {{opc.content}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

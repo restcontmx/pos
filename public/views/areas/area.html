@@ -1,0 +1,50 @@
+<div class="form-group">
+    <label for="name">Nombre</label>
+    <input
+        type="text"
+        class="form-control"
+        id="name"
+        ng-model="area.name"
+        maxlength="100"
+        placeholder="Nombre">
+</div>
+
+<div class="form-group">
+    <label for="description">Descripción</label>
+    <textarea
+        type="text"
+        class="form-control"
+        id="description"
+        ng-model="area.description"
+        maxlength="200"
+        placeholder="Descripción"></textarea>
+</div>
+
+<div class="form-group">
+    <label for="price">Precio</label>
+    <input
+        type="number"
+        class="form-control"
+        id="price"
+        ng-model="area.price"
+        placeholder="Precio">
+</div>
+
+<div class="form-group">
+    <label for="area_type">Tipo de Área</label>
+    <select
+        class="form-control"
+        name="area_type"
+        ng-options="option.name for option in areatypes track by option.id"
+        ng-model="area.area_type"></select>
+</div>
+
+<div class="form-group">
+    <label for="area_type">Albercas</label>
+    <select
+        class="form-control"
+        name="pools"
+        ng-options="option.name for option in pools track by option.id"
+        ng-model="area.pools"
+        multiple></select>
+</div>

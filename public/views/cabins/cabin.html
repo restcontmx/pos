@@ -1,0 +1,47 @@
+<div class="form-group">
+    <label for="name">Nombre</label>
+    <input
+        type="text"
+        class="form-control"
+        id="name"
+        ng-model="cabin.name"
+        maxlength="100"
+        placeholder="Nombre">
+</div>
+
+<div class="form-group">
+    <label for="description">Descripción</label>
+    <textarea
+        type="text"
+        class="form-control"
+        id="description"
+        ng-model="cabin.description"
+        maxlength="200"
+        placeholder="Descripción"></textarea>
+</div>
+
+<div class="form-group">
+    <label for="price">Precio</label>
+    <input
+        type="number"
+        class="form-control"
+        id="price"
+        ng-model="cabin.price"
+        placeholder="Precio">
+</div>
+
+<div class="form-group">
+    <label for="cabin_type">Tipo de Cabaña</label>
+    <select
+        class="form-control"
+        name="cabin_type"
+        ng-options="option.name for option in cabintypes track by option.id"
+        ng-model="cabin.cabin_type"></select>
+</div>
+
+<div class="form-group">
+    <label for="file">Imagen {{file.name}}</label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+        <input class="form-control" type="file" ng-model="file" name="file" base-sixty-four-input onload="onLoad" accept="image/*">
+    </div>
+</div>

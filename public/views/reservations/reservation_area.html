@@ -1,0 +1,35 @@
+<div  ng-controller="reservation-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/reservations"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Reservaciones</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> áreas</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-puzzle-piece" aria-hidden="true"></i> Disponibles</h5>
+        </div>
+        <div class="col-md-4">
+            <a href="#/reservations/area/new"><button type="button" class="btn btn-primary" style="width:100%;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nueva reservación</button></a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div>
+        </div>
+    </div>
+
+</div>

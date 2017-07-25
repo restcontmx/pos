@@ -1,0 +1,163 @@
+<div  ng-controller="reports-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="#/overview"><i class="fa fa-line-chart" aria-hidden="true"></i> Ventas</a></li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-line-chart" aria-hidden="true"></i> Reportes</h5>
+        </div>
+        <div class="co-md-4">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row" id="recipt">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al obtener datos</strong>
+                <p>{{errors}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <fusioncharts
+                width="100%"
+                height="400"
+                type="mscombi2d"
+                datasource="{{month_reports}}"
+            ></fusioncharts>
+        </div>
+        <div class="col-md-4">
+            <h3>Reservaciones del mes</h3>
+            <hr>
+            <p class="lead">Total de ventas : $ {{monthly_total}}</p>
+            <p class="lead">Total de Reservaciones : {{res_total}}</p>
+            <p class="lead">Día con más Reservaciones : {{d_max_res.day}}</p>
+            <p class="lead">Día con más Ganancias : {{d_max_sales.day}}</p>
+            <div class="row">
+                <div class="col-md-8">
+                    <select
+                        class="form-control"
+                        id=""
+                        ng-model="month"
+                        ng-options="option for option in months track by option"
+                        ng-change="change_month()">
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select
+                        class="form-control"
+                        id=""
+                        ng-model="year_m"
+                        ng-options="option for option in years_m track by option"
+                        ng-change="change_month()">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Reservaciones del año</h3>
+            <hr>
+            <p class="lead">Total de ventas : $ {{yearly_total}}</p>
+            <p class="lead">Total de Reservaciones : {{res_yearly_total}}</p>
+            <p class="lead">Mes con más Reservaciones : {{m_max_res.month}}</p>
+            <p class="lead">Mes con más Ganancias : {{m_max_sales.month}}</p>
+            <select
+                class="form-control"
+                id=""
+                ng-model="year"
+                ng-options="option for option in years track by option"
+                ng-change="change_year()">
+            </select>
+        </div>
+        <div class="col-md-8">
+            <fusioncharts
+                width="100%"
+                height="400"
+                type="mscombi2d"
+                datasource="{{year_reports}}"
+            ></fusioncharts>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <fusioncharts
+                width="100%"
+                height="400"
+                type="mscombi2d"
+                datasource="{{month_cabin_reports}}"
+            ></fusioncharts>
+        </div>
+        <div class="col-md-4">
+            <h3>Cabañas por mes</h3>
+            <hr>
+            <p class="lead">Cabaña con más Ganancias : {{d_max_cabres.cabin.name}} </p>
+            <p class="lead">Cabaña con más reservaciones : {{d_max_cabres_mr.cabin.name}}</p>
+            <div class="row">
+                <div class="col-md-8">
+                    <select
+                        class="form-control"
+                        id=""
+                        ng-model="month_cabins"
+                        ng-options="option for option in months track by option"
+                        ng-change="change_month_cabins()">
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select
+                        class="form-control"
+                        id=""
+                        ng-model="year_m_cabins"
+                        ng-options="option for option in years_m track by option"
+                        ng-change="change_month_cabins()">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Cabañas por año</h3>
+            <hr>
+            <p class="lead">Cabaña con más Ganancias : {{m_max_cabres.cabin.name}}</p>
+            <p class="lead">Cabaña con más reservaciones : {{m_max_cabres_mr.cabin.name}}</p>
+            <select
+                class="form-control"
+                id=""
+                ng-model="year_cabins"
+                ng-options="option for option in years track by option"
+                ng-change="change_year_cabins()">
+            </select>
+        </div>
+        <div class="col-md-8">
+            <fusioncharts
+                width="100%"
+                height="400"
+                type="mscombi2d"
+                datasource="{{year_cabin_reports}}"
+            ></fusioncharts>
+        </div>
+    </div>
+
+</div>

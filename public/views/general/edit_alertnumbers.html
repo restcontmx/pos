@@ -1,0 +1,94 @@
+<div  ng-controller="settings-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/settings"><i class="fa fa-gears" aria-hidden="true"></i> Configuración</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-commenting-o" aria-hidden="true"></i> Números de Alerta</li>
+    </ol>
+
+
+    <h2 class="display-3">{{title}}</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <h5 class="lead"> <i class="fa fa-commenting-o" aria-hidden="true"></i> {{no_alerts_des}}</h5>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al editar objecto!</strong> {{errors}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card card-outline-primary mb-3 text-left">
+                <div class="card-header text-sm-center lead">
+                    Editar
+                </div>
+                <div class="card-block">
+                    <div class="alert alert-danger" role="alert" ng-if="errors">
+                        <strong>Error al editar objecto</strong>
+                        <p>{{errors}}</p>
+                    </div>
+                    <form ng-submit="save_no_alerts()">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>No. Teléfono</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="an in alertnumbers">
+                                    <td>
+                                        <div class="form-group">
+                                            <input
+                                                class="form-control"
+                                                type="text"
+                                                ng-model="an.name"
+                                                placeholder="Nombre">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input
+                                                class="form-control"
+                                                type="text"
+                                                ng-model="an.phone_number"
+                                                placeholder="Teléfono">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-left">
+                                    <a href="#/settings">
+                                        <button type="button" class="btn btn-danger"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Cancelar</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

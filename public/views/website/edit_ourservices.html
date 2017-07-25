@@ -1,0 +1,92 @@
+<div  ng-controller="contents-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/contents"><i class="fa fa-gears" aria-hidden="true"></i> Contenidos</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-envelope-o" aria-hidden="true"></i> Editar Contenido</li>
+    </ol>
+
+
+    <h2 class="display-3">{{title}}</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <h5 class="lead"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Nuestros Servicios</h5>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al editar objecto!</strong> {{errors}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-outline-primary mb-3 text-left">
+                <div class="card-header text-sm-center lead">
+                    Editar
+                </div>
+                <div class="card-block">
+                    <div class="alert alert-danger" role="alert" ng-if="errors">
+                        <strong>Error al editar objecto</strong>
+                        <p>{{errors}}</p>
+                    </div>
+                    <form ng-submit="save_ourservices()">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <center>
+                                    <h2>Nuestros Servicios</h2> [<a href="#/contents/ourservices/">Editar</a>]
+                                </center>
+                                <hr>
+                            </div>
+                            <div ng-repeat="osc in ourservicescontents" class="col-md-4">
+                                <center>
+                    			    <figure class="services-icon-fig"><i class="{{osc.icon}}"></i></figure>
+                                </center>
+
+                                <select
+                                    class="form-control"
+                                    ng-options="option for option in icons track by option"
+                                    ng-model="osc.icon"></select>
+                                <h4><input
+                                    type="text"
+                                    class="form-control"
+                                    ng-model="osc.title"></h4>
+                                <p class="text-justify">
+                                    <textarea
+                                        name="name"
+                                        class="form-control"
+                                        rows="5" cols="200" ng-model="osc.content"></textarea>
+                                </p>
+                            </div>
+                        </div>
+
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-left">
+                                    <a href="#/contents">
+                                        <button type="button" class="btn btn-danger"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Cancelar</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

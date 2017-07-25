@@ -1,0 +1,101 @@
+<div ng-controller="task-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Tareas</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="display-3">{{title}}</h2>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <h5 class="lead"> <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Listado de Tareas</h5>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-7">
+            <div ng-if="assigned_tasks" class="col-md-6">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-custom-red">
+                        <tr>
+                            <th><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Tareas Asignadas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="t in assigned_tasks">
+                            <td>
+                                <div class="card card-outline-info">
+                                    <div class="card-header">
+                                        {{t.value|getValueName}}
+                                    </div>
+                                    <div class="card-block">
+                                        <blockquote class="card-blockquote">
+                                            <p>{{t.name}}</p>
+                                            <p>{{t.description}}</p>
+                                            <footer>Límite <cite title="Source Title"><b>{{t.date_end|dateTimeFilter}}</b></cite></footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-if="tasks" class="col-md-6">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-custom-green">
+                        <tr>
+                            <th><i class="fa fa-check-circle" aria-hidden="true"></i>  Tareas Creadas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="t in tasks">
+                            <td>
+                                <div class="card card-outline-info">
+                                    <div class="card-header">
+                                        {{t.value|getValueName}} [<a href="#">Borrar</a>]
+                                    </div>
+                                    <div class="card-block">
+                                        <blockquote class="card-blockquote">
+                                            <p>{{t.name}}</p>
+                                            <p>{{t.description}}</p>
+                                            <footer>Límite <cite title="Source Title"><b>{{t.date_end|dateTimeFilter}}</b></cite></footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card">
+                <div class="alert alert-danger" role="alert" ng-if="errors">
+                    <strong>Error al agregar objecto</strong>
+                    <p>{{errors}}</p>
+                </div>
+                <h3 class="card-header">Agregar nueva tarea</h3>
+                <div class="card-block">
+                    <form ng-submit="add()">
+                        <div ng-include="'../views/tasks/task.html'"></div>
+                        <button type="submit" class="btn btn-secondary pull-right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar nuevo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

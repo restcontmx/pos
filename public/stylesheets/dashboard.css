@@ -1,0 +1,265 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+body, html {
+    height: auto;
+}
+/*
+ * Typography
+ */
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 51px;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  border-right: 1px solid #eee;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+/*
+ * Dashboard
+ */
+
+ /* Placeholders */
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.custom-nav {
+    background-color: #204356;
+}
+
+.thead-custom-green {
+    background-color: #5cb85c;
+    color : white;
+}
+.thead-custom-red {
+    background-color: #d9534f;
+    color : white;
+}
+.thead-custom-blue {
+    background-color: #489fdf;
+    color : white;
+}
+
+main.ng-scope {
+  height: auto;
+  background-color: white;
+}
+
+.services-icon-fig {
+    font-size: 100px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 100px;
+}
+
+ul.home-menu {
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    display: inline-block;
+    margin:0 auto;
+}
+
+ul.home-menu li{
+    float: left;
+    margin:5px;
+}
+
+ul.home-menu li a {
+    display: block;
+    padding: 50px 0px;
+    background: rgb(128, 128, 128);
+    color: white;
+    font-weight: normal;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    -webkit-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    background: #000;
+}
+
+ul.home-menu li a.reports {
+    background: #459DCA;
+}
+
+ul.home-menu li a.cuts {
+    background: #45CA99;
+}
+
+ul.home-menu li a.users {
+    background: #34495E;
+}
+
+ul.home-menu li a.stations {
+    background: #CA5D45;
+}
+
+ul.home-menu li a.products {
+    background: #CA455D;
+}
+
+ul.home-menu li a.categories {
+    background: #55484A;
+}
+
+ul.home-menu li a i.fa {
+    font-size: 50px;
+    margin-top: -10px;
+}
+
+ul.home-menu li a:hover {
+    background: rgb(48, 48, 48);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    -moz-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.12);
+}
+
+ul.products-list {
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    display: inline-block;
+}
+
+ul.products-list li{
+    float: left;
+    margin:5px;
+    margin-bottom: 10px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+ul.products-list li a {
+    display: block;
+    padding: 80px 60px;
+    background: rgb(128, 128, 128);
+    color: white;
+    font-weight: normal;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    -webkit-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    background: #000;
+    border-radius: 5px;
+}
+
+.products-display {
+    margin-top: 10px;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+ul.categories-list {
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    display: inline-block;
+}
+
+ul.categories-list li{
+    float: left;
+    margin:5px;
+    width: auto;
+}
+
+ul.categories-list li a {
+    display: block;
+    padding: 15px 40px;
+    background: rgb(128, 128, 128);
+    color: white;
+    font-weight: normal;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    -webkit-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    background: #000;
+    border-radius: 5px;
+}
+
+.categories-display {
+    overflow-x: scroll;
+}
+
+.details-display {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
+}

@@ -1,0 +1,62 @@
+<div  ng-controller="cabin-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/cabins"><i class="fa fa-bed" aria-hidden="true"></i> Cabañas</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-plus-square" aria-hidden="true"></i> Nuevo</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <h5 class="lead"> <i class="fa fa-plus-square" aria-hidden="true"></i> Agregar nueva cabaña</h5>
+        </div>
+        <div class="col-md-5"></div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card card-outline-primary mb-3 text-left">
+                <div class="card-header text-sm-center lead">
+                    Nuevo
+                </div>
+                <div class="card-block">
+                    <div class="alert alert-danger" role="alert" ng-if="errors">
+                        <strong>Error al agregar objecto</strong>
+                        <p>{{errors}}</p>
+                    </div>
+                    <div class="alert alert-warning" role="alert" ng-if="loanding">
+                      <strong><i class="fa fa-spinner fa-pulse fa-fw"></i></strong> Subiendo...
+                    </div>
+                    <form ng-submit="add()">
+
+                        <div ng-include="'/views/cabins/cabin.html'"></div>
+
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-left">
+                                    <a href="#/cabins">
+                                        <button type="button" class="btn btn-danger"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Cancelar</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-plus-square" aria-hidden="true"></i> Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div  ng-controller="reservation-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Reservaciones</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Seleccione una opción de reserva</h5>
+        </div>
+    </div>
+
+    <hr>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <center>
+                <div class="card card-inverse card-primary mb-3 text-center" style="width:200px;height:200px;">
+                    <div class="card-block">
+                        <br/><br/>
+                        <a href="#/reservations/cabin">
+                            <blockquote class="card-blockquote">
+                                <h1 class="display-4">
+                                    <i class="fa fa-bed" aria-hidden="true"></i>
+                                </h1>
+                                <p class="lead">Cabañas</p>
+                            </blockquote>
+                        </a>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div class="col-md-4">
+            <center>
+                <div class="card card-inverse card-info mb-3 text-center" style="width:200px;height:200px;">
+                    <div class="card-block">
+                        <br/><br/>
+                        <a href="#/reservations/pool">
+                            <blockquote class="card-blockquote">
+                                <h1 class="display-4">
+                                    <i class="fa fa-bath" aria-hidden="true"></i>
+                                </h1>
+                                <p class="lead">Albercas</p>
+                            </blockquote>
+                        </a>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div class="col-md-4">
+            <center>
+                <div class="card card-inverse card-danger mb-3 text-center" style="width:200px;height:200px;">
+                    <div class="card-block">
+                        <br/><br/>
+                        <a href="#/reservations/area">
+                            <blockquote class="card-blockquote">
+                                <h1 class="display-4">
+                                    <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                                </h1>
+                                <p class="lead">Áreas</p>
+                            </blockquote>
+                        </a>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+
+</div>

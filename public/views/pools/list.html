@@ -1,0 +1,51 @@
+<div  ng-controller="pool-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-bed" aria-hidden="true"></i> Albercas</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-bed" aria-hidden="true"></i> Listado de Albercas</h5>
+        </div>
+        <div class="col-md-2">
+            <a href="#/pools/new"><button type="button" class="btn btn-secondary pull-right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar nuevo</button></a>
+        </div>
+        <div class="col-md-2">
+            <input ng-model="search_text" ng-change="searchChange()" type="text" class="form-control" id="search" placeholder="Buscar...">
+        </div>
+    </div>
+
+    <hr>
+
+    <div ng-if="pools">
+        <table class="table table-bordered table-hover">
+        <thead class="thead-inverse">
+            <tr>
+                <th style="width:15%"><i class="fa fa-asterisk" aria-hidden="true"></i>  Nombre</th>
+                <th><i class="fa fa-indent" aria-hidden="true"></i> Descripción</th>
+                <th style="width:15%"><i class="fa fa-users" aria-hidden="true"></i> Máximo</th>
+                <th style="width:15%"><i class="fa fa-money" aria-hidden="true"></i> Precio</th>
+                <th class="text-sm-center"><i class="fa fa-pencil" aria-hidden="true"></i></th>
+                <th class="text-sm-center"><i class="fa fa-trash" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in pools">
+                <td><a href="#/pools/detail/{{p.id}}"><p class="lead">{{p.name}}</p></td>
+                <td><p class="lead">{{p.description}}</p></td>
+                <td><p class="lead">{{p.max_people}}</p></td>
+                <td><p class="lead">{{p.price}}</p></td>
+                <td><a href="#/pools/edit/{{c.id}}"><button type="button" class="btn btn-outline-primary"><i class="fa fa-pencil-square" aria-hidden="true"></i> Editar</button></a></td>
+                <td><button type="button" ng-click="delete( $event, p.id )" class="btn btn-outline-danger md-raised"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+</div>

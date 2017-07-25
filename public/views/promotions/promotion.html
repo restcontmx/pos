@@ -1,0 +1,55 @@
+<div class="form-group">
+    <label for="name">Nombre</label>
+    <input
+        type="text"
+        ng-model="promotion.name"
+        class="form-control"
+        name="name"
+        placeholder="Nombre">
+</div>
+
+<div class="form-group">
+    <label for="description">Descripción</label>
+    <textarea
+        ng-model="promotion.description"
+        class="form-control"
+        name="description"
+        placeholder="Descripcion"></textarea>
+</div>
+
+<div class="form-group">
+    <label for="discount">Descuento</label>
+    <input
+        type="number"
+        ng-model="promotion.discount"
+        class="form-control"
+        name="discount"
+        placeholder="Descuento">
+</div>
+
+<div class="form-group">
+    <label for="date_start">Fecha Inicio</label>
+    <input
+        id="date_start"
+        type="text"
+        class="form-control date-picker"
+        name="date_start"
+        placeholder="Fecha Inicio">
+</div>
+
+<div class="form-group">
+    <label for="date_end">Fecha Fin</label>
+    <input
+        id="date_end"
+        type="text"
+        class="form-control date-picker"
+        name="date_end"
+        placeholder="Fecha Fin">
+</div>
+
+<script>
+    $(document).ready( function() {
+        $('#date_start').datetimepicker();
+        $('#date_end').datetimepicker();
+    });
+</script>

@@ -1,0 +1,90 @@
+<div  ng-controller="settings-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/settings"><i class="fa fa-list-alt" aria-hidden="true"></i> Configuración</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-ticket" aria-hidden="true"></i> Precios de Boletos</li>
+    </ol>
+
+
+    <h2 class="display-3">{{title}}</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <h5 class="lead"> <i class="fa fa-ticket" aria-hidden="true"></i> {{ticket_prices_des}}</h5>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al editar objecto!</strong> {{errors}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card card-outline-primary mb-3 text-left">
+                <div class="card-header text-sm-center lead">
+                    Editar
+                </div>
+                <div class="card-block">
+                    <div class="alert alert-danger" role="alert" ng-if="errors">
+                        <strong>Error al editar objecto</strong>
+                        <p>{{errors}}</p>
+                    </div>
+                    <form ng-submit="save_ticket_prices()">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="ticket_price_child">Boleto de Niño</label>
+                                    <input
+                                        class="form-control"
+                                        type="number"
+                                        string-to-number
+                                        ng-model="ticketprices[0].price"
+                                        placeholder="Precio Niño">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="ticket_price_adult">Boleto de Adulto</label>
+                                    <input
+                                        class="form-control"
+                                        type="number"
+                                        string-to-number
+                                        ng-model="ticketprices[1].price"
+                                        placeholder="Precio Adulto">
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-left">
+                                    <a href="#/settings">
+                                        <button type="button" class="btn btn-danger"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Cancelar</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-sm-right">
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

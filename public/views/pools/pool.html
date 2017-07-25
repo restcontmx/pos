@@ -1,0 +1,41 @@
+<div class="form-group">
+    <label for="name">Nombre</label>
+    <input
+        type="text"
+        class="form-control"
+        id="name"
+        ng-model="pool.name"
+        maxlength="100"
+        placeholder="Nombre">
+</div>
+
+<div class="form-group">
+    <label for="description">Descripción</label>
+    <textarea
+        type="text"
+        class="form-control"
+        id="description"
+        ng-model="pool.description"
+        maxlength="200"
+        placeholder="Descripción"></textarea>
+</div>
+
+<div class="form-group">
+    <label for="price">Precio</label>
+    <input
+        type="number"
+        class="form-control"
+        id="price"
+        ng-model="pool.price"
+        placeholder="Precio">
+</div>
+
+<div class="form-group">
+    <label for="price">Máximo people</label>
+    <input
+        type="number"
+        class="form-control"
+        id="max_people"
+        ng-model="pool.max_people"
+        placeholder="Máximo">
+</div>

@@ -1,0 +1,49 @@
+<div  ng-controller="reservationtype-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-bed" aria-hidden="true"></i> Tipos de Reservación</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-bed" aria-hidden="true"></i> Listado de tipos de reservación</h5>
+        </div>
+        <div class="col-md-2">
+            <a href="#/reservationtypes/new"><button type="button" class="btn btn-secondary pull-right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar nuevo</button></a>
+        </div>
+        <div class="col-md-2">
+            <input ng-model="search_text" ng-change="searchChange()" type="text" class="form-control" id="search" placeholder="Buscar...">
+        </div>
+    </div>
+
+    <hr>
+
+    <div ng-if="reservationtypes">
+        <table class="table table-bordered table-hover">
+        <thead class="thead-inverse">
+            <tr>
+                <th style="width:15%"><i class="fa fa-asterisk" aria-hidden="true"></i>  Nombre</th>
+                <th><i class="fa fa-indent" aria-hidden="true"></i> Descripción</th>
+                <th style="width:15%"><i class="fa fa-cube" aria-hidden="true"></i> Valor</th>
+                <th class="text-sm-center"><i class="fa fa-pencil" aria-hidden="true"></i></th>
+                <th class="text-sm-center"><i class="fa fa-trash" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="rt in reservationtypes">
+                <td><a href="#/reservationtypes/detail/{{rt.id}}"><p class="lead">{{rt.name}}</p></td>
+                <td><p class="lead">{{rt.description}}</p></td>
+                <td><p class="lead">{{rt.value}}</p></td>
+                <td><a href="#/reservationtypes/edit/{{rt.id}}"><button type="button" class="btn btn-outline-primary"><i class="fa fa-pencil-square" aria-hidden="true"></i> Editar</button></a></td>
+                <td><button type="button" ng-click="delete( $event, rt.id )" class="btn btn-outline-danger md-raised"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+</div>

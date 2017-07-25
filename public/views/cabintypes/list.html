@@ -1,0 +1,51 @@
+<div  ng-controller="cabintype-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><i class="fa fa-list-alt" aria-hidden="true"></i> Tipos de Cabaña</li>
+    </ol>
+
+    <h2 class="display-3">{{title}}</h2>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+            <h5 class="lead"> <i class="fa fa-list-ol" aria-hidden="true"></i> Listado de tipo de cabaña</h5>
+        </div>
+        <div class="col-md-2">
+            <a href="#/cabintypes/new"><button type="button" class="btn btn-secondary pull-right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar nuevo</button></a>
+        </div>
+        <div class="col-md-2">
+            <input ng-model="search_text" ng-change="searchChange()" type="text" class="form-control" id="search" placeholder="Buscar...">
+        </div>
+    </div>
+
+    <hr>
+
+    <div ng-if="cabintypes">
+        <table class="table table-bordered table-hover">
+        <thead class="thead-inverse">
+            <tr>
+                <th style="width:15%"><i class="fa fa-asterisk" aria-hidden="true"></i>  Nombre</th>
+                <th><i class="fa fa-indent" aria-hidden="true"></i> Descripción</th>
+                <th style="width:15%"><i class="fa fa-cube" aria-hidden="true"></i> Cuartos</th>
+                <th style="width:15%"><i class="fa fa-users" aria-hidden="true"></i> Capacidad + Extra</th>
+                <th class="text-sm-center"><i class="fa fa-pencil" aria-hidden="true"></i></th>
+                <th class="text-sm-center"><i class="fa fa-trash" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="ct in cabintypes_table">
+                <td><a href="#/cabintypes/detail/{{ct.id}}"><p class="lead">{{ct.name}}</p></td>
+                <td><p class="lead">{{ct.description}}</p></td>
+                <td><p class="lead">{{ct.rooms}}</p></td>
+                <td><p class="lead">{{ct.max_guests}} + {{ct.max_extra_guests}}</p></td>
+                <td><a href="#/cabintypes/edit/{{ct.id}}"><button type="button" class="btn btn-outline-primary"><i class="fa fa-pencil-square" aria-hidden="true"></i> Editar</button></a></td>
+                <td><button type="button" ng-click="delete( $event, ct.id )" class="btn btn-outline-danger md-raised"><i class="fa fa-trash" aria-hidden="true"></i> Borrar</button></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+</div>

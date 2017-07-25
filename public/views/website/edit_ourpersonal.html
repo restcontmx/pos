@@ -1,0 +1,77 @@
+<div  ng-controller="contents-controller">
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/contents"><i class="fa fa-gears" aria-hidden="true"></i> Contenidos</a></li>
+        <li class="breadcrumb-item active"><i class="fa fa-envelope-o" aria-hidden="true"></i> Editar Contenido</li>
+    </ol>
+
+
+    <h2 class="display-3">{{title}}</h2>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <h5 class="lead"> <i class="fa fa-envelope-o" aria-hidden="true"></i> Nuestro Personal</h5>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al editar objecto!</strong> {{errors}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-outline-primary mb-3 text-left">
+                <div class="card-header text-sm-center lead">
+                    Editar
+                </div>
+                <div class="card-block">
+                    <div class="alert alert-danger" role="alert" ng-if="errors">
+                        <strong>Error al editar objecto</strong>
+                        <p>{{errors}}</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{ourpersonalcontents[0].img_url}}" class="img-fluid" alt="Responsive image">
+                            <input class="form-control" type="file" ng-model="file" name="file" base-sixty-four-input onload="onLoadOurPersonalImage" accept="image/*">
+                            <br>
+                            <button class="btn btn-success pull-right" ng-click="save_ourpersonal_img()">Guardar Imagen</button>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-justify">
+                                <textarea
+                                    class="form-control"
+                                    ng-model="ourpersonalcontents[0].content"
+                                    rows="5" cols="200" placeholder="contenido">
+                                </textarea></p>
+                        </div>
+                    </div>
+
+                    <br>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group text-sm-left">
+                                <a href="#/contents">
+                                    <button type="button" class="btn btn-danger"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Cancelar</button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group text-sm-right">
+                                <button class="btn btn-success" ng-click="save_ourpersonal()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

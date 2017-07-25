@@ -1,0 +1,39 @@
+<div class="modal-body" >
+    <h1>BALPRES-ADMIN</h1>
+    <div class="text-sm-left">
+        <b>Acceso al sistema</b>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert" ng-if="errors">
+                <strong>Error al intentar entrar!</strong> {{errors}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-outline-primary mb-3 text-center">
+                <div class="card-block">
+                    <form ng-submit="login()" >
+                        <div class="form-group">
+                            <label for="username">Nombre de usuario</label>
+                            <input type="text" class="form-control" id="username" ng-model="username" placeholder="Nombre de usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" ng-model="password" placeholder="Password">
+                        </div>
+                        <div class="form-group text-sm-right">
+                            <button type="submit" class="btn btn-success">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <small>Si ha olvidado su contraseña o nombre de usuario contractar al administrador del sistema.</small>
+    <small><a href="#" class="tooltip-test" title="Tooltip">codethefunkout@gmail.com</a></small>
+</div>
